@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift}/MyCLI",
+            "name": "Debug MyCLI (MyCLI)",
+            "program": "${workspaceFolder:swift}/MyCLI/.build/debug/MyCLI",
+            "preLaunchTask": "swift: Build Debug MyCLI (MyCLI)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift}/MyCLI",
+            "name": "Release MyCLI (MyCLI)",
+            "program": "${workspaceFolder:swift}/MyCLI/.build/release/MyCLI",
+            "preLaunchTask": "swift: Build Release MyCLI (MyCLI)"
+        }
+    ]
+}
