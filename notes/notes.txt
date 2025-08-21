@@ -1,0 +1,7 @@
+ error: no such module 'UIKit'
+import UIKit
+       ^
+denmac@dens-Mac-mini swift % 
+
+---
+
