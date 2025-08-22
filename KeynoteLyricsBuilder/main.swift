@@ -14,7 +14,7 @@ let outputPath = keynotePath(from: inputPath)
 
 // MARK: - Read Lyrics
 guard let lyrics = try? String(contentsOfFile: inputPath) else {
-    fatalError("Could not read lyrics file.")
+    fatalError("❌ Could not read lyrics file at \(inputPath)")
 }
 let lines = lyrics.split(separator: "\n").map { String($0) }
 
@@ -27,21 +27,20 @@ tell application "Keynote"
 
 for line in lines {
     script += """
-    
+
     tell newDoc
         set thisSlide to make new slide
         tell thisSlide
-            set thisTextBox to make new text item with properties {object text:"\(line)"}
-            set transition properties to {transition effect: dissolve, transition duration: \(delaySeconds)}
+            set thisTextBox to make new shape with properties {shape type:text, object text:"\(line)"}
+            set transition properties to {transition effect:dissolve, transition duration:\(delaySeconds)}
         end tell
     end tell
-
     """
 }
 
 script += """
-    
-    save newDoc in POSIX file "\(outputPath)"
+
+save newDoc in POSIX file "\(outputPath)"
 end tell
 """
 
