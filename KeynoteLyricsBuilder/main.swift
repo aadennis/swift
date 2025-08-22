@@ -25,14 +25,17 @@ tell application "Keynote"
     set newDoc to make new document
 """
 
-for (index, line) in lines.enumerated() {
+for line in lines {
     script += """
     
     tell newDoc
         set thisSlide to make new slide
-        set the body item of thisSlide to "\(line)"
-        set transition properties of thisSlide to {transition effect: dissolve, transition duration: \(delaySeconds)}
+        tell thisSlide
+            set thisTextBox to make new text item with properties {object text:"\(line)"}
+            set transition properties to {transition effect: dissolve, transition duration: \(delaySeconds)}
+        end tell
     end tell
+
     """
 }
 
