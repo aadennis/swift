@@ -31,7 +31,8 @@ for line in lines {
     tell newDoc
         set thisSlide to make new slide
         tell thisSlide
-            set thisTextBox to make new shape with properties {shape type:text, object text:"\(line)"}
+            set thisShape to make new shape with properties {shape type:"text"}
+            set object text of thisShape to "\(line)"
             set transition properties to {transition effect:dissolve, transition duration:\(delaySeconds)}
         end tell
     end tell
